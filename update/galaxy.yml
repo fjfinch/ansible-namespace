@@ -5,5 +5,5 @@
 namespace: my_namespace
 name: update
 version: 1.0.0
-readme: README.md
+readme: # README.md
 authors: no
