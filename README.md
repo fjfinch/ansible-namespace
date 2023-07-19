@@ -7,7 +7,7 @@ collections:
   - name: git+https://github.com/fjfinch/my_namespace.git#/LINTING
 ```
 
-Execute with:
+Pull with:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
