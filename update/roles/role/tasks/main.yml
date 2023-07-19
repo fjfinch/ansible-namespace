@@ -5,3 +5,7 @@
     upgrade: safe
     autoremove: true
   become: true
+
+- name: 'UPDATE : pipx packages'
+  community.general.pipx:
+    state: upgrade_all
