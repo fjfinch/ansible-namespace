@@ -4,6 +4,6 @@
 # underscores or numbers and cannot contain consecutive underscores
 namespace: GITHUB
 name: UPDATE
-version: # 1.0.0
-readme: # README.md
-authors: # no
+version: 1.0.0
+readme:
+authors:
