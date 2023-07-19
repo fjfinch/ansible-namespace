@@ -1,0 +1,8 @@
+---
+- name: 'install linting tools'
+  ansible.builtin.apt:
+    name: '{{ item.name }}'
+  loop:
+    - { name: ansible-lint }
+    - { name: yamllint }
+  become: true

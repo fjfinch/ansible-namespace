@@ -1,8 +1,10 @@
 # ansible-namespace
 Contents of `requirements.yml`:
 ```bash
+---
 collections:
   - name: git+https://github.com/fjfinch/my_namespace.git#/UPDATE
+  - name: git+https://github.com/fjfinch/my_namespace.git#/LINTING
 ```
 Execute with:
 ```bash
