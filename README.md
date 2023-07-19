@@ -1,11 +1,15 @@
 # ansible-namespace
-Create `requirements.yml` with:
+Contents of `requirements.yml`:
 ```bash
 collections:
   - name: git+https://github.com/fjfinch/my_namespace.git#/UPDATE
 ```
+Execute with:
+```bash
+ansible-galaxy collection install -r requirements.yml
+```
 
-In `main.yml`:
+Contents of `main.yml`:
 ```bash
   roles:
     - GITHUB.UPDATE.ROLE
