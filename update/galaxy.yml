@@ -4,6 +4,6 @@
 # underscores or numbers and cannot contain consecutive underscores
 namespace: my_namespace
 name: update
-version: 1.0.0
+version: # 1.0.0
 readme: # README.md
-authors: no
+authors: # no
