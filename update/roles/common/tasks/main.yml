@@ -1,0 +1,4 @@
+---
+- name: 'UPDATE : pipx packages'
+  community.general.pipx:
+    state: upgrade_all
