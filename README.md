@@ -18,3 +18,20 @@ Set collections in `main.yml`:
     - GITHUB.UPDATE.ROLE
     - GITHUB.LINTING.ROLE
 ```
+
+## Linting
+```bash
+ansible-lint
+yamllint <DIRECTORY>
+ansible-playbook --syntax-check <PLAYBOOK> # syntax check
+```
+
+Contents `.ansible-lint` for ansible-lint:
+```bash
+skip_list:
+  - 'yaml[comments]'
+  - 'name[missing]'
+  - 'name[casing]'
+  - 'fqcn[action-core]'
+  - 'no-handler'
+```
