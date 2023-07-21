@@ -21,17 +21,30 @@ Set collections in `main.yml`:
 
 ## Linting
 ```bash
-ansible-lint
 yamllint <DIRECTORY>
-ansible-playbook --syntax-check <PLAYBOOK> # syntax check
+ansible-lint
 ```
 
-Contents `.ansible-lint` for ansible-lint:
+Exclude rules for yamllint:
+```bash
+yamllint <DIRECTORY> | grep -v "(line-length)\|(braces)\|(comments)\|(comments-indentation)"
+```
+
+Exclude rules for ansible-lint - set in `.ansible-lint`:
 ```bash
 skip_list:
-  - 'yaml[comments]'
-  - 'name[missing]'
+  - 'schema[playbook]'
   - 'name[casing]'
-  - 'fqcn[action-core]'
+  - 'latest[git]'
+  - 'yaml[comments]'
   - 'no-handler'
+  - 'no-changed-when'
+  - 'galaxy[no-changelog]'
+  - 'galaxy[no-runtime]'
+  - 'galaxy[tags]'
+  - 'schema[galaxy]'
+  - 'role-name'
+
+  - 'fqcn[action-core]'
+  - 'name[missing]'
 ```
