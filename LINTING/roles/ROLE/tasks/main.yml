@@ -1,8 +1,7 @@
 ---
 - name: 'install linting tools'
-  ansible.builtin.apt:
+  community.general.pipx:
     name: '{{ item.name }}'
   loop:
     - { name: ansible-lint }
     - { name: yamllint }
-  become: true
