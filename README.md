@@ -1,5 +1,5 @@
 # ansible-namespace
-Create a `requirements.yml` file in your Ansible project with the collections you want. Available collections:
+Create a `requirements.yml` file in your Ansible project with the following (use the collections you want):
 ```bash
 ---
 collections:
@@ -7,12 +7,12 @@ collections:
   - name: git+https://github.com/fjfinch/my_namespace.git#/LINTING
 ```
 
-Pull the collections with on your machine:
+Pull the collections on your machine with:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
 
-Use the collections in your projects `main.yml` file:
+To use the collections in your Ansible playbook. Insert the following into your `main.yml` file:
 ```bash
   roles:
     - GITHUB.UPDATE.ROLE
