@@ -1,7 +1,7 @@
 # ansible-namespace
 Technically the folders in this namespace are called collections. However I only use them for roles. The use of a namespace makes it possible to have all roles in 1 Github repository & and to only pull the roles you really need. (and not all).
 
-Create a `requirements.yml` file in your Ansible project with the following (pull the roles you want):
+Create a `requirements.yml` file in your Ansible project with the following (pull only the roles you want ofcourse):
 ```bash
 ---
 collections:
