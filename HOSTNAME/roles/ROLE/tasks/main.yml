@@ -5,11 +5,11 @@
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: '^127\.0\.1\.1(\s*)'
-    line: '127.0.1.1\1{{ device_hostname }}'
+    line: '127.0.1.1\1{{ device_hostname | default("test-device") }}'
     backrefs: true
   become: true
 
 - name: 'HOSTNAME : change systems hostname'
   ansible.builtin.hostname:
-    name: '{{ device_hostname }}'
+    name: '{{ device_hostname | default("test-device") }}'
   become: true
