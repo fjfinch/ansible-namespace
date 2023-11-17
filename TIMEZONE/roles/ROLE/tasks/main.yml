@@ -1,0 +1,5 @@
+---
+- name: 'TIMEZONE : set correct timezone'
+  community.general.timezone:
+    name: '{{ device_timezone | default("Europe/Amsterdam") }}'
+  become: true
