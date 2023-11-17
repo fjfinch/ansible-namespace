@@ -1,7 +1,15 @@
 ---
-#- import_tasks: tasks/cloud-init.yml
+- name: 'disable cloud-init reverting the hostname'
+  ansible.builtin.lineinfile:
+    path: /etc/cloud/cloud.cfg
+    search_string: '{{ item.search_string }}'
+    line: '{{ item.line }}'
+  loop:
+    - { search_string: 'preserve_hostname: false', line: 'preserve_hostname: true' }
+    - { search_string: '- update_etc_hosts', line: '#- update_etc_hosts' }
+  become: true
 
-- name: 'HOSTNAME : change hostname in /etc/hosts'
+- name: 'change hostname in /etc/hosts'
   ansible.builtin.lineinfile:
     path: /etc/hosts
     regexp: '^127\.0\.1\.1(\s*)'
@@ -9,7 +17,7 @@
     backrefs: true
   become: true
 
-- name: 'HOSTNAME : change systems hostname'
+- name: 'change systems hostname'
   ansible.builtin.hostname:
     name: '{{ device_hostname | default("test-device") }}'
   become: true
