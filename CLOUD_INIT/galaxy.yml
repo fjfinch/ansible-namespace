@@ -4,7 +4,7 @@
 # content lives. May only contain alphanumeric lowercase characters and underscores. Namespaces cannot start with
 # underscores or numbers and cannot contain consecutive underscores
 namespace: GITHUB
-name: CLOUD-INIT
+name: CLOUD_INIT
 version: 1.0.0
 readme:
 authors:
