@@ -3,8 +3,11 @@ Technically the folders in this namespace are called collections. However I only
 
 Available roles:
 ```bash
-UPDATE
-LINTING
+UPDATE - update & upgrade system
+CLOUD_INIT - disable cloud-init
+HOSTNAME - change hostname (set 'device_hostname' variable in playbook)
+TIMEZONE - change timezone (set 'device_timezone' variable in playbook)
+LINTING - install linting tools
 ```
 
 ## Use
@@ -12,7 +15,6 @@ Create a `requirements.yml` file in your Ansible project with the roles you want
 ```bash
 ---
 collections:
-  - name: community.general
   - name: git+https://github.com/fjfinch/ansible-namespace.git#/<ROLE>
 ```
 
