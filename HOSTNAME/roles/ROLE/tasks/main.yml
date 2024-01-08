@@ -2,11 +2,12 @@
 - name: 'disable cloud-init reverting the hostname'
   ansible.builtin.lineinfile:
     path: /etc/cloud/cloud.cfg
-    search_string: '{{ item.search_string }}'
+    regexp: '{{ item.regexp }}'
     line: '{{ item.line }}'
+    backrefs: true
   loop:
-    - { search_string: 'preserve_hostname: false', line: 'preserve_hostname: true' }
-    - { search_string: '- update_etc_hosts', line: '#- update_etc_hosts' }
+    - { regexp: 'preserve_hostname: false', line: 'preserve_hostname: true' }
+    - { regexp: '(\s*)- update_etc_hosts', line: '#\1- update_etc_hosts' }
   become: true
 
 - name: 'change hostname in /etc/hosts'
