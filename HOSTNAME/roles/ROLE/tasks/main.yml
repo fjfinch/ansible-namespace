@@ -10,12 +10,20 @@
     - { regexp: '(\s*)- update_etc_hosts', line: '#\1- update_etc_hosts' }
   become: true
 
+#- name: 'change hostname in /etc/hosts'
+#  ansible.builtin.lineinfile:
+#    path: /etc/hosts
+#    regexp: '^127\.0\.1\.1(\s*)'
+#    line: '127.0.1.1\1{{ device_hostname | default("test-device") }}'
+#    backrefs: true
+#  become: true
+
 - name: 'change hostname in /etc/hosts'
   ansible.builtin.lineinfile:
     path: /etc/hosts
-    regexp: '^127\.0\.1\.1(\s*)'
-    line: '127.0.1.1\1{{ device_hostname | default("test-device") }}'
-    backrefs: true
+    regexp: '^127\.0\.1\.1'
+    insertafter: '^127\.0\.0\.1'
+    line: '127.0.1.1 {{ device_hostname | default("test-device") }}'
   become: true
 
 - name: 'change systems hostname'
