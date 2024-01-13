@@ -4,18 +4,18 @@ Technically the folders in this namespace are called collections. However I only
 Available roles:
 ```bash
 UPDATE - update & upgrade system
+HOSTNAME - change hostname (set the 'device_hostname' variable in your playbook)
+TIMEZONE - change timezone (set the 'device_timezone' variable in your playbook)
 CLOUD_INIT - disable cloud-init
-HOSTNAME - change hostname (set 'device_hostname' variable in playbook)
-TIMEZONE - change timezone (set 'device_timezone' variable in playbook)
 LINTING - install linting tools
 ```
 
 ## Use
-Create a `requirements.yml` file in your Ansible project with the roles you want to pull:
+Create a `requirements.yml` file in your Ansible folder and add this repo URL to it:
 ```bash
 ---
 collections:
-  - name: git+https://github.com/fjfinch/ansible-namespace.git#/<ROLE>
+  - name: git+https://github.com/fjfinch/ansible-namespace.git
 ```
 
 Pull the roles on your machine:
@@ -23,7 +23,7 @@ Pull the roles on your machine:
 ansible-galaxy collection install -r requirements.yml
 ```
 
-To use the roles in your Ansible playbook; insert the following lines into your `main.yml` file:
+To use any role in your Ansible playbook; insert the following lines into your `main.yml` file:
 ```bash
   roles:
     - GITHUB.<ROLE>.ROLE
