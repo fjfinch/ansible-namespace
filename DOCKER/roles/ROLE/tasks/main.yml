@@ -25,12 +25,6 @@
     filename: docker
   become: true
 
-#- name: 'DOCKER : update apt'
-#  ansible.builtin.apt:
-#    update_cache: true
-#    cache_valid_time: 3600
-#  become: true
-
 - name: 'DOCKER : install docker'
   ansible.builtin.apt:
     name: '{{ item.name }}'
@@ -42,3 +36,8 @@
     - { name: docker-buildx-plugin }
     - { name: docker-compose-plugin }
   become: true
+
+- name: 'DOCKER : start service'
+  ansible.builtin.service:
+    name: docker
+    state: started
