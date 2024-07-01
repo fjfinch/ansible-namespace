@@ -25,15 +25,16 @@
     filename: docker
   become: true
 
-- name: 'DOCKER : update apt'
-  ansible.builtin.apt:
-    update_cache: true
-    cache_valid_time: 3600
-  become: true
+#- name: 'DOCKER : update apt'
+#  ansible.builtin.apt:
+#    update_cache: true
+#    cache_valid_time: 3600
+#  become: true
 
 - name: 'DOCKER : install docker'
   ansible.builtin.apt:
     name: '{{ item.name }}'
+    update_cache: true
   loop:
     - { name: docker-ce }
     - { name: docker-ce-cli }
