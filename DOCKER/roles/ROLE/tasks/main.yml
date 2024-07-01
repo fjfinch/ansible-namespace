@@ -1,0 +1,43 @@
+---
+- name: 'DOCKER : remove unofficial'
+  ansible.builtin.apt:
+    name: '{{ item.name }}'
+    state: absent
+    autoremove: true
+  loop:
+    - { name: docker.io }
+    - { name: docker-compose }
+    - { name: docker-compose-v2 }
+    - { name: docker-doc }
+    - { name: podman-docker }
+  become: true
+
+- name: 'DOCKER : add docker gpg apt key'
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: 'a+r'
+  become: true
+
+- name: 'DOCKER : add docker repository'
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+    filename: docker
+  become: true
+
+- name: 'DOCKER : update apt'
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+
+- name: 'DOCKER : install docker'
+  ansible.builtin.apt:
+    name: '{{ item.name }}'
+  loop:
+    - { name: docker-ce }
+    - { name: docker-ce-cli }
+    - { name: containerd.io }
+    - { name: docker-buildx-plugin }
+    - { name: docker-compose-plugin }
+  become: true

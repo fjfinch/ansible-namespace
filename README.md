@@ -8,6 +8,7 @@ HOSTNAME - change hostname (set the 'device_hostname' variable in your playbook)
 TIMEZONE - change timezone (set the 'device_timezone' variable in your playbook)
 CLOUD_INIT - disable cloud-init
 LINTING - install linting tools
+DOCKER - install docker
 ```
 
 ## Use
