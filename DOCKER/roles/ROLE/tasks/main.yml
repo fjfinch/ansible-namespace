@@ -16,12 +16,14 @@
     url: https://download.docker.com/linux/ubuntu/gpg
     dest: /etc/apt/keyrings/docker.asc
     mode: 'a+r'
+  register: key
   become: true
 
 - name: 'add docker repository'
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
     filename: docker
+  when: key.changed
   become: true
 
 - name: 'install packages'
@@ -33,10 +35,12 @@
       - docker-buildx-plugin
       - docker-compose-plugin
     update_cache: true
+  register: install
   become: true
 
 - name: 'start service'
   ansible.builtin.service:
     name: docker
     state: started
+  when: install.changed
   become: true
