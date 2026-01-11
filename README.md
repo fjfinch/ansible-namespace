@@ -3,6 +3,7 @@ Technically the folders in this namespace are called collections. However I only
 
 Available roles:
 ```bash
+REQUIREMENTS - pull latest roles
 UPDATE - update & upgrade system
 DOCKER - install official docker
 LINTING - install linting tools
