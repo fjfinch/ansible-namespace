@@ -10,6 +10,7 @@
   ansible.builtin.command:
     cmd: ansible-galaxy collection install -r requirements.yml
   register: ok
+  changed_when: ok.rc != 0
 
 - name: print
   debug:
