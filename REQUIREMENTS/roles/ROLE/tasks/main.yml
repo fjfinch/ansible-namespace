@@ -6,6 +6,6 @@
   register: ok
   changed_when: ok.run_info.results_rc is defined and ok.run_info.results_rc != 0
 
-#- name: print
-#  debug:
-#    msg: "{{ ok }}"
+- name: print
+  debug:
+    msg: "{{ ok }}"
