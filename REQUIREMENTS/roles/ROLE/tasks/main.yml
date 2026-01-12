@@ -9,5 +9,3 @@
 - name: print
   debug:
     msg: "{{ ok }}"
-
-# test
