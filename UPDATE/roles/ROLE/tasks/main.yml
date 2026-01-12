@@ -9,10 +9,3 @@
 - name: 'pipx packages'
   community.general.pipx:
     state: upgrade_all
-
-# TEST 1
-# TEST 2
-# TEST 3
-# TEST 4
-# 5
-# 6
