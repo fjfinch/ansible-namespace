@@ -1,12 +1,15 @@
 ---
-- name: 'install roles from requirements file'
-  community.general.ansible_galaxy_install:
-    type: collection
-    requirements_file: requirements.yml
-    force: false
-#    state: latest
-  register: ok
+#- name: 'install roles from requirements file'
+#  community.general.ansible_galaxy_install:
+#    type: collection
+#    requirements_file: requirements.yml
+#  register: ok
 #  changed_when: ok.run_info.results_rc is defined and ok.run_info.results_rc != 0
+
+- name: 'install roles from requirements file'
+  ansible.builtin.command:
+    cmd: ansible-galaxy collection install -r requirements.yml
+  register: ok
 
 - name: print
   debug:
