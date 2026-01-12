@@ -3,5 +3,5 @@
   community.general.ansible_galaxy_install:
     type: collection
     requirements_file: requirements.yml
-  register: test
-  changed_when: test.rc != 0
+  register: ok
+  changed_when: ok.rc != 0
