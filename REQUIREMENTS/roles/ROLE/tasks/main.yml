@@ -4,7 +4,7 @@
     type: collection
     requirements_file: requirements.yml
     force: false
-    state: latest
+#    state: latest
   register: ok
 #  changed_when: ok.run_info.results_rc is defined and ok.run_info.results_rc != 0
 
