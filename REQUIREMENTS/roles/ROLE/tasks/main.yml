@@ -4,4 +4,4 @@
     type: collection
     requirements_file: requirements.yml
   register: ok
-  changed_when: ok.results_rc != 0
+  changed_when: ok.run_info.results_rc != 0
